@@ -196,30 +196,30 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center w-full"
         >
-          <span className="text-brand-gold uppercase tracking-[4px] text-[11px] mb-6 font-semibold">
+          <span className="text-brand-gold uppercase tracking-[3px] md:tracking-[4px] text-[10px] md:text-[11px] mb-4 md:mb-6 font-semibold">
             Luxury Beauty Boutique
           </span>
-          <h1 className="text-5xl md:text-8xl text-brand-beige font-serif mb-8 leading-[1.1] accent-glow">
-            Your Dream Bridal <br/> 
+          <h1 className="text-4xl sm:text-5xl md:text-8xl text-brand-beige font-serif mb-6 md:mb-8 leading-[1.1] accent-glow px-2">
+            Your Dream Bridal <br className="hidden sm:block"/> 
             <span className="italic">Look Starts Here</span> ✨
           </h1>
-          <p className="text-brand-gray text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light tracking-wide">
+          <p className="text-brand-gray text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-10 font-light tracking-wide px-4">
             Bridal • Engagement • Party • HD Makeup | Professional Beauty Academy In Bijnor
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-6 sm:px-0">
             <a 
               href="#contact" 
-              className="px-10 py-5 bg-brand-gold text-brand-black font-bold uppercase tracking-[0.2em] text-sm rounded-sm glossy-effect shadow-2xl shadow-brand-gold/10"
+              className="px-8 md:px-10 py-4 md:py-5 bg-brand-gold text-brand-black font-bold uppercase tracking-[0.2em] text-xs md:text-sm rounded-sm glossy-effect shadow-2xl shadow-brand-gold/10"
             >
               Book Appointment
             </a>
-            <div className="flex gap-4">
+            <div className="flex gap-4 w-full sm:w-auto">
                <a 
                 href={WHATSAPP_URL}
-                className="flex-1 md:flex-none px-10 py-5 bg-transparent border border-brand-gold text-brand-gold rounded-sm hover:bg-brand-gold/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm text-sm uppercase font-bold tracking-widest"
+                className="flex-1 sm:flex-none px-8 md:px-10 py-4 md:py-5 bg-transparent border border-brand-gold text-brand-gold rounded-sm hover:bg-brand-gold/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm text-xs md:text-sm uppercase font-bold tracking-widest"
               >
                 WhatsApp Chat
               </a>
@@ -281,6 +281,8 @@ const About = () => {
               alt="GLOSSY Luxury Studio Experience - Square Format" 
               className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
             />
             {/* Overlay Gradient for Luxury Feel */}
             <div className="absolute inset-0 bg-linear-to-t from-brand-black/60 via-transparent to-transparent pointer-events-none" />
@@ -396,7 +398,7 @@ const Packages = () => {
       <div className="max-w-7xl mx-auto">
         <SectionHeading subtitle="Premium Packages" title="Curated Beauty Packages" />
 
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PACKAGES.map((pkg, i) => (
             <div 
               key={i} 
@@ -495,12 +497,12 @@ const Academy = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2 order-1 md:order-2">
+          <div className="md:w-1/2 order-1 md:order-2">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="aspect-square bg-brand-glass border border-brand-gold/10 rounded-[60px] relative overflow-hidden flex items-center justify-center glossy-effect"
+            className="aspect-square bg-brand-glass border border-brand-gold/10 rounded-[30px] md:rounded-[60px] relative overflow-hidden flex items-center justify-center glossy-effect"
           >
             <div className="relative z-10 p-20 text-center w-full h-full flex flex-col items-center justify-center">
               <Sparkles className="w-12 h-12 text-brand-gold/20 mb-8" />
@@ -519,42 +521,32 @@ const Academy = () => {
 const Gallery = () => {
   const GALLERY_ITEMS = [
     { title: "Bridal Look", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBKhYfmdOTzXObbgTVB9cOLaZhKKefhhyyHzBrEJG6iYmcaLy1OhHB0YWLFAdXBC66DkdiSYm6aLtCy8i0srOK6JapZ3gYXxHIfz70USkY_lQJWlp8GtFMsrFltN8zznA04mSC4LRtIo4jN2K5gmSJadnu0ewubEVHQbzP7za7ubiiYqTguODA7O88=w1280" },
-    { title: "Engagement Glow", image: "https://lh3.googleusercontent.com/p/AF1QipO5aBBaWUfikImP6pS18gQUa6TA2nA5seZIFlUC=w243-h406-n-k-no-nu" },
     { title: "Haldi Special", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBj0kYqTlvdKXH6sX6k4SVjYgLYqcY4uDJJJ4JfnsNj7KUNCmZkPb2nh8dny1LJ0ZtMUL5LqRzknWu7sXAXjkc1lA2YYvyYFe6-_h7--SB2lpqHvvDVfUC1ZvjWwAnujF2kOSNX2tITtxpPlyH9qeAq_cqktd6xM_a-7Y_zOipwsb6cYtOiJpXL2Jjdqhc1KNg9dXN01-IsDbq8gFFKfqSeVawWxx1mxSPc=w1280" },
-    { title: "Nail Art - Cat Eye", image: "https://lh3.googleusercontent.com/p/AF1QipMNf2Mv2eJrAoApNnuLDzRcuThbl20qNheyO98p=w243-h244-n-k-no-nu" },
+    { title: "Engagement Glow", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBbHdIa1zeMU4wzX4urRi0LE9BSZferKjiVGQhBkGvopoZSaEpDBWbUzBup5MOKAevhNm3L9M6mZ0S8cHHf3rD2mqEYmlPCf0P3VDi2JSYh5kR5M4iYL5I4BfkuUqHIbXdZMR-4JAe0iSXZaNRVu1D4qOwSM26uHQetJzUXLtNOVsM3tmys1VCKXq0mEN1If3YBDtzx1Ar6-UU7XkcZ16phe9h6TURXdHo7da8=w1280" },
     { title: "Party Glamour", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUDMhSwmqH3QaRiYSBLB-A9lOBtV4Fpt1fDEANt8YhvbLoS-rTrM-dJR6pcYaQW-nUlj9Tq8E5vfuqZiEgSuhDJMqRThcqNeyElSf8zejbkwCuo-CJo48ptBxwUL6N8ij_s6WznWVEYMjk3hk3hCATh2rogwPvGqoLu9WRoQrGu4KJ3XIjo5788ZH2-HxXuMjlomqnVMnXLG0ZIR7Nv7G8ScjXkqESyvK5-X=w1280" },
-    { title: "Hair Botox", image: "https://lh3.googleusercontent.com/p/AF1QipMeIP7jDGWD68GSCvjrFSKla8Qlkza0vDITwtql=w243-h406-n-k-no-nu" },
-    { title: "Artistic Nails", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUDMpVLCV55j5SQvubONz1gJXZYWMTIjZsr26u2EeupEvNTHNxRSEecFUckapHYkWEh6-LlgFeM4FZ3AbE5j5BZoh5JE3uL0ltEPCi-CBNOWbrYntk7MqwMixqUJWkNf__1OJDbiQpz6QXyzCD9AcoGbSVrlfHgEfXhpG7RNxcvE6oiXq_DcZQWa-TAXsqtpzJ0uGcRD7LcFyY_qk9vjPfjwsAt4ozDOaPVC9OA=w1280" },
-    { title: "Studio Interior", image: "" }
   ];
 
   return (
     <section id="gallery" className="py-24 px-6 md:px-12 bg-brand-black border-y border-white/5">
       <SectionHeading subtitle="Work Gallery" title="Our Work Portfolio" />
      
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto">
         {GALLERY_ITEMS.map((item, i) => (
           <motion.div 
             key={i} 
             whileHover={{ scale: 1.02 }}
             className={cn(
-              "group aspect-square bg-brand-glass rounded-xl border border-white/5 flex flex-col items-center justify-center text-center transition-all hover:border-brand-gold/50 cursor-pointer glossy-effect relative overflow-hidden",
-              item.title === "Bridal Look" || item.title === "Party Glamour" || item.title === "Haldi Special" || item.title === "Artistic Nails" ? "md:row-span-2 md:aspect-[9/16]" : ""
+              "group bg-brand-glass rounded-xl md:rounded-3xl border border-white/5 transition-all hover:border-brand-gold/50 cursor-pointer glossy-effect relative overflow-hidden shadow-2xl aspect-[3/4]"
             )}
           >
-            {item.image ? (
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-            ) : (
-              <div className="p-6 flex flex-col items-center">
-                <Sparkles className="w-5 h-5 text-brand-gold/10 mb-4" />
-              </div>
-            )}
-            
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </motion.div>
         ))}
@@ -628,7 +620,7 @@ const Contact = () => {
                    </div>
                    <div>
                       <h4 className="font-bold uppercase tracking-[2px] text-[10px] mb-2 text-brand-gold">Call For Appointments</h4>
-                      <a href={`tel:${PHONE}`} className="text-brand-beige font-serif text-3xl hover:text-brand-gold transition-colors accent-glow">{PHONE}</a>
+                      <a href={`tel:${PHONE}`} className="text-brand-beige font-serif text-2xl md:text-3xl hover:text-brand-gold transition-colors accent-glow block md:inline">{PHONE}</a>
                    </div>
                 </div>
 
@@ -648,7 +640,7 @@ const Contact = () => {
           </div>
 
           <div className="md:w-1/2">
-             <div className="w-full h-full min-h-[400px] bg-brand-glass rounded-[40px] border border-brand-gold/10 flex items-center justify-center p-12 text-center group transition-all hover:bg-brand-gold/5 hover:border-brand-gold/30">
+             <div className="w-full h-full min-h-[300px] md:min-h-[400px] bg-brand-glass rounded-[30px] md:rounded-[40px] border border-brand-gold/10 flex items-center justify-center p-8 md:p-12 text-center group transition-all hover:bg-brand-gold/5 hover:border-brand-gold/30">
                 <div className="space-y-6">
                    <MapPin className="w-12 h-12 text-brand-gold/40 mx-auto group-hover:scale-110 transition-transform" />
                    <h3 className="text-2xl font-serif text-brand-beige accent-glow">View On Google Maps</h3>
@@ -683,18 +675,18 @@ const HighConversionCTA = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             className="space-y-12"
           >
-             <h2 className="text-5xl md:text-7xl font-serif text-brand-black leading-tight">
-                Don't Wait, Your <br/> <span className="italic">Perfect Date Is Near</span>
+             <h2 className="text-4xl md:text-7xl font-serif text-brand-black leading-tight px-4">
+                Don't Wait, Your <br className="hidden sm:block"/> <span className="italic">Perfect Date Is Near</span>
              </h2>
-             <p className="text-xl md:text-2xl font-serif text-brand-black/60 italic">
+             <p className="text-lg md:text-2xl font-serif text-brand-black/60 italic px-6">
                 Bridal slots are filling up fast for the upcoming wedding season.
              </p>
              
-             <div className="flex flex-col md:flex-row justify-center gap-4">
-                <a href={`tel:${PHONE}`} className="bg-brand-black text-brand-nude px-12 py-6 rounded-sm text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:scale-105 transition-transform">
+             <div className="flex flex-col md:flex-row justify-center gap-4 px-6 md:px-0">
+                <a href={`tel:${PHONE}`} className="bg-brand-black text-brand-nude px-12 py-5 md:py-6 rounded-sm text-xs md:text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:scale-105 transition-transform min-h-[56px]">
                    <Phone className="w-5 h-5 text-brand-gold" /> Call Now
                 </a>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="bg-transparent border border-brand-black text-brand-black px-12 py-6 rounded-sm text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-brand-black hover:text-white transition-all">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="bg-transparent border border-brand-black text-brand-black px-12 py-5 md:py-6 rounded-sm text-xs md:text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-brand-black hover:text-white transition-all min-h-[56px]">
                    <MessageCircle className="w-5 h-5" /> WhatsApp Now
                 </a>
              </div>

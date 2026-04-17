@@ -27,12 +27,20 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-brand-black text-white font-sans antialiased overflow-x-hidden;
+    @apply bg-brand-black text-white font-sans antialiased overflow-x-hidden w-full m-0 p-0;
   }
   
   h1, h2, h3, h4, .font-serif {
     @apply font-serif;
+  }
+
+  img {
+    @apply max-w-full h-auto select-none pointer-events-none;
   }
 }
 
