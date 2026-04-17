@@ -46,30 +46,6 @@
   overflow: hidden;
 }
 
-.glossy-effect::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 45%,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0.1) 55%,
-    transparent 100%
-  );
-  transform: rotate(30deg);
-  transition: all 0.5s;
-  pointer-events: none;
-}
-
-.glossy-effect:hover::after {
-  transform: rotate(30deg) translate(20%, 20%);
-}
-
 .glow-card {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
   transition: box-shadow 0.3s ease;

@@ -19,9 +19,10 @@ import { cn } from './lib/utils';
 
 // --- Constants ---
 const BRAND_NAME = "GLOSSY MAKEUP STUDIO & ACADEMY";
-const PHONE = "08303794290";
-const INSTAGRAM_URL = "https://instagram.com";
-const WHATSAPP_URL = `https://wa.me/91${PHONE}`;
+const PHONE = "+918303794290";
+const INSTAGRAM_URL = "https://instagram.com/glossymakeupstudio_";
+const WHATSAPP_URL = "https://wa.me/918303794290?text=Hi%20I%20want%20to%20book%20my%20bridal%20makeup";
+const SMS_URL = "sms:+918303794290";
 
 const SERVICES = [
   { name: "Bridal Makeup", description: "Your dream look for your most special day.", icon: <Sparkles className="w-5 h-5" /> },
@@ -120,6 +121,8 @@ const Navbar = () => {
         ))}
         <a 
           href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-brand-gold text-brand-black px-6 py-2 rounded-sm text-xs font-bold uppercase tracking-widest glossy-effect"
         >
           Book Now
@@ -159,6 +162,8 @@ const Navbar = () => {
             ))}
             <a 
               href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-brand-gold text-brand-black w-full text-center py-4 rounded-xl font-bold uppercase tracking-widest"
             >
               Book Appointment
@@ -173,8 +178,14 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
-      {/* Background with Glow */}
+      {/* Background with Glow & Image Texture */}
       <div className="absolute inset-0 opacity-40">
+        <img 
+          src="https://lh3.googleusercontent.com/sitesv/AA5AbUDMhSwmqH3QaRiYSBLB-A9lOBtV4Fpt1fDEANt8YhvbLoS-rTrM-dJR6pcYaQW-nUlj9Tq8E5vfuqZiEgSuhDJMqRThcqNeyElSf8zejbkwCuo-CJo48ptBxwUL6N8ij_s6WznWVEYMjk3hk3hCATh2rogwPvGqoLu9WRoQrGu4KJ3XIjo5788ZH2-HxXuMjlomqnVMnXLG0ZIR7Nv7G8ScjXkqESyvK5-X=w1280"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+          alt=""
+          referrerPolicy="no-referrer"
+        />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/20 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-pink/10 rounded-full blur-[120px]" />
       </div>
@@ -253,53 +264,77 @@ const SectionHeading = ({ subtitle, title, light = true }: { subtitle: string, t
 
 const About = () => {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 bg-brand-black border-y border-brand-gold/10">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-24 px-6 md:px-12 bg-brand-black border-y border-brand-gold/10 relative overflow-hidden">
+      {/* Decorative Background Element */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-brand-gold/5 to-transparent pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
         <div className="relative">
-          <div className="aspect-[4/5] bg-brand-glass rounded-lg border border-brand-gold/10 overflow-hidden glossy-effect">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="aspect-square bg-brand-glass rounded-lg border border-brand-gold/10 overflow-hidden glossy-effect shadow-2xl relative"
+          >
             <img 
-              src="https://lh3.googleusercontent.com/p/AF1QipMtbopRZx5u8VSyMnANJVPYPgYV9dqrUdmBmNfs=s1360-w1360-h1020-rw" 
-              alt="GLOSSY Makeup Studio Interior" 
-              className="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/sitesv/AA5AbUBnosMMyE9dpg-GoVhENXxYNaNaaVYbXs8oZXcqk-QV2ATM6nIy5o2CWU-e8NriLbMc3-d9HctLMpWUJNNZ-Z55uul0GAiP2COpSq3BdS8PFCE3phyvDDBo-DNlCWCtgwBbWlHh8ChlJtYfF5K06eFyK6D_LspoqzLFPr-iOehvZkzcy1uuIAU4Fj46c-Th8JW4sNT1GbtWy1RmpAs20cpO4Jq-92oE3Bboc_Y=w1280" 
+              alt="GLOSSY Luxury Studio Experience - Square Format" 
+              className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               referrerPolicy="no-referrer"
             />
-          </div>
-          <div className="absolute -bottom-10 -right-10 bg-brand-black/90 backdrop-blur-sm text-white p-8 rounded-lg border border-brand-gold/20 shadow-2xl hidden md:block">
+            {/* Overlay Gradient for Luxury Feel */}
+            <div className="absolute inset-0 bg-linear-to-t from-brand-black/60 via-transparent to-transparent pointer-events-none" />
+            
+            <div className="absolute bottom-8 left-8 z-10">
+              <Sparkles className="w-8 h-8 text-brand-gold drop-shadow-lg mb-2 opacity-50" />
+              <p className="text-brand-beige font-serif italic text-sm tracking-widest uppercase text-shadow-lg">Luxury Studio Experience</p>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="absolute -bottom-10 -right-6 bg-brand-black/90 backdrop-blur-md text-white p-6 rounded-lg border border-brand-gold/20 shadow-2xl hidden lg:block z-20"
+          >
             <div className="flex items-center gap-4 mb-2">
               <div className="flex text-brand-gold">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
-              <span className="font-bold">4.9/5</span>
+              <span className="font-bold text-lg">4.9/5</span>
             </div>
-            <p className="text-xs font-light text-brand-gray tracking-widest uppercase">110+ Google Reviews</p>
-          </div>
+            <p className="text-[10px] font-bold text-brand-gold tracking-[0.3em] uppercase">Bijnor's #1 Rated Studio</p>
+          </motion.div>
         </div>
 
-        <div>
-          <SectionHeading subtitle="Elegance Refined" title="Leading Makeup Studio In Bijnor" />
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <SectionHeading subtitle="The Art of Perfection" title="Leading Makeup Studio In Bijnor" />
+          <p className="text-xl text-brand-beige/80 font-serif italic mb-6">
+            Transforming your vision into a stunning reality with a touch of luxury.
+          </p>
           <p className="text-lg text-brand-gray font-light leading-relaxed mb-8">
             Glossy Makeup Studio & Academy is Bijnor's most trusted destination for premium beauty services. 
-            Located in Sarvan Nagar, we specialize in high-definition bridal transformations and professional makeup artistry.
-          </p>
-          <p className="text-lg text-brand-gray font-light leading-relaxed mb-10">
-            Our mission is to empower every client through flawless, long-lasting makeup that enhances natural beauty. 
-            Whether it's your wedding day or a special evening, our expert team ensures a look that is both sophisticated and timeless.
+            Located in Sarvan Nagar, we specialize in high-definition bridal transformations and professional makeup artistry that lasts.
           </p>
           
           <div className="grid grid-cols-2 gap-6">
             {[
-              { label: "110+", sub: "Happy Clients" },
+              { label: "110+", sub: "Verified Reviews" },
               { label: "4.9⭐", sub: "Google Rating" },
-              { label: "HD", sub: "Makeup Specialization" },
-              { label: "Certified", sub: "Beauty Academy" }
+              { label: "HD & Airbrush", sub: "Techniques" },
+              { label: "Certified", sub: "Global Academy" }
             ].map((stat, i) => (
-              <div key={i} className="p-6 bg-brand-glass rounded-lg border border-brand-gold/10">
-                <div className="text-2xl font-serif text-brand-gold mb-1">{stat.label}</div>
+              <div key={i} className="p-6 bg-brand-glass rounded-lg border border-brand-gold/10 hover:border-brand-gold/30 transition-colors group">
+                <div className="text-2xl font-serif text-brand-gold mb-1 group-hover:scale-110 transition-transform origin-left">{stat.label}</div>
                 <div className="text-[10px] uppercase tracking-widest text-brand-gray font-bold">{stat.sub}</div>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -316,19 +351,21 @@ const Services = () => {
             <motion.div 
               key={i}
               whileHover={{ y: -5 }}
-              className="group p-8 bg-brand-glass rounded-xl border border-white/5 hover:border-brand-gold/20 transition-all duration-500"
+              className="group p-8 bg-brand-glass rounded-xl border border-white/5 hover:border-brand-gold/20 transition-all duration-500 relative overflow-hidden"
             >
-              <div className="w-12 h-12 bg-brand-black border border-brand-gold/20 text-brand-gold rounded-lg flex items-center justify-center mb-6 shadow-xl">
-                {service.icon}
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-brand-black border border-brand-gold/20 text-brand-gold rounded-lg flex items-center justify-center mb-6 shadow-xl">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-serif mb-4 text-brand-beige">{service.name}</h3>
+                <p className="text-brand-gray text-sm font-light mb-8 leading-relaxed">{service.description}</p>
+                <a 
+                  href={WHATSAPP_URL}
+                  className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[2px] text-brand-gold group-hover:gap-4 transition-all"
+                >
+                  Enquire <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
-              <h3 className="text-xl font-serif mb-4 text-brand-beige">{service.name}</h3>
-              <p className="text-brand-gray text-sm font-light mb-8 leading-relaxed">{service.description}</p>
-              <a 
-                href={WHATSAPP_URL}
-                className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[2px] text-brand-gold group-hover:gap-4 transition-all"
-              >
-                Enquire <ArrowRight className="w-4 h-4" />
-              </a>
             </motion.div>
           ))}
           
@@ -396,15 +433,18 @@ const Packages = () => {
 
         {/* Individual Pricing Box */}
         <div className="mt-16 p-10 bg-brand-glass border border-white/5 rounded-xl">
-          <h3 className="text-2xl font-serif mb-8 text-brand-gold">Party & Casual Pricing</h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h3 className="text-2xl font-serif mb-8 text-brand-gold italic">Party & Casual Pricing</h3>
+          <div className="grid md:grid-cols-2 md:gap-x-12 gap-y-2">
             {[
               { name: "HD Party Makeup", price: "₹2,000" },
               { name: "Nude Makeup", price: "₹2,000" },
-              { name: "Saree Draping", price: "₹500" }
+              { name: "Saree Draping", price: "₹500" },
+              { name: "Standard Draping", price: "₹300" },
+              { name: "Party Hair Style", price: "₹500+" },
+              { name: "Regular Makeup", price: "₹1,500" }
             ].map((p, i) => (
               <div key={i} className="flex justify-between items-center py-4 border-b border-white/5">
-                <span className="font-light tracking-wide">{p.name}</span>
+                <span className="font-light tracking-wide text-brand-gray">{p.name}</span>
                 <span className="font-serif text-brand-gold">{p.price}</span>
               </div>
             ))}
@@ -456,14 +496,20 @@ const Academy = () => {
         </div>
 
         <div className="md:w-1/2 order-1 md:order-2">
-          <div className="aspect-square bg-brand-glass border border-brand-gold/10 rounded-[60px] relative overflow-hidden flex items-center justify-center p-20 text-center">
-            <div className="relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="aspect-square bg-brand-glass border border-brand-gold/10 rounded-[60px] relative overflow-hidden flex items-center justify-center glossy-effect"
+          >
+            <div className="relative z-10 p-20 text-center w-full h-full flex flex-col items-center justify-center">
+              <Sparkles className="w-12 h-12 text-brand-gold/20 mb-8" />
               <span className="text-brand-gold uppercase tracking-[4px] text-[10px] mb-4 block font-semibold">Academy</span>
               <h3 className="text-3xl text-brand-beige font-serif mb-6 italic accent-glow">Empowering the <br/> artists of tomorrow</h3>
               <p className="text-brand-gray text-[11px] font-light tracking-[1px] uppercase">Join 50+ successful students from GLOSSY</p>
             </div>
-            <div className="absolute inset-4 border border-brand-gold/5 rounded-[50px]" />
-          </div>
+            <div className="absolute inset-4 border border-brand-gold/5 rounded-[50px] pointer-events-none" />
+          </motion.div>
         </div>
       </div>
     </section>
@@ -472,14 +518,14 @@ const Academy = () => {
 
 const Gallery = () => {
   const GALLERY_ITEMS = [
-    { title: "Bridal Look", image: "https://lh3.googleusercontent.com/p/AF1QipMNR1jLWiUo-IS45MRcx-CWDOX5IosiSbdbfuFX=w243-h174-n-k-no-nu" },
+    { title: "Bridal Look", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBKhYfmdOTzXObbgTVB9cOLaZhKKefhhyyHzBrEJG6iYmcaLy1OhHB0YWLFAdXBC66DkdiSYm6aLtCy8i0srOK6JapZ3gYXxHIfz70USkY_lQJWlp8GtFMsrFltN8zznA04mSC4LRtIo4jN2K5gmSJadnu0ewubEVHQbzP7za7ubiiYqTguODA7O88=w1280" },
     { title: "Engagement Glow", image: "https://lh3.googleusercontent.com/p/AF1QipO5aBBaWUfikImP6pS18gQUa6TA2nA5seZIFlUC=w243-h406-n-k-no-nu" },
-    { title: "Royal Hijab", image: "https://lh3.googleusercontent.com/p/AF1QipPsEVjbJ7eK7vfqxCx4xU0lW5EpWrMJTd6MfIOS=w243-h203-n-k-no-nu" },
-    { title: "Haldi Special", image: "https://lh3.googleusercontent.com/p/AF1QipNeBY_MbPAspImHfSghi9ml3E1zJDNm7mseyCX-=w243-h304-n-k-no-nu" },
+    { title: "Haldi Special", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBj0kYqTlvdKXH6sX6k4SVjYgLYqcY4uDJJJ4JfnsNj7KUNCmZkPb2nh8dny1LJ0ZtMUL5LqRzknWu7sXAXjkc1lA2YYvyYFe6-_h7--SB2lpqHvvDVfUC1ZvjWwAnujF2kOSNX2tITtxpPlyH9qeAq_cqktd6xM_a-7Y_zOipwsb6cYtOiJpXL2Jjdqhc1KNg9dXN01-IsDbq8gFFKfqSeVawWxx1mxSPc=w1280" },
     { title: "Nail Art - Cat Eye", image: "https://lh3.googleusercontent.com/p/AF1QipMNf2Mv2eJrAoApNnuLDzRcuThbl20qNheyO98p=w243-h244-n-k-no-nu" },
-    { title: "Party Glamour", image: "https://lh3.googleusercontent.com/p/AF1QipNsrak8-8DdU60Out7xY2zHBYiITrjlZ6A_hpP9=w243-h406-n-k-no-nu" },
+    { title: "Party Glamour", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUDMhSwmqH3QaRiYSBLB-A9lOBtV4Fpt1fDEANt8YhvbLoS-rTrM-dJR6pcYaQW-nUlj9Tq8E5vfuqZiEgSuhDJMqRThcqNeyElSf8zejbkwCuo-CJo48ptBxwUL6N8ij_s6WznWVEYMjk3hk3hCATh2rogwPvGqoLu9WRoQrGu4KJ3XIjo5788ZH2-HxXuMjlomqnVMnXLG0ZIR7Nv7G8ScjXkqESyvK5-X=w1280" },
     { title: "Hair Botox", image: "https://lh3.googleusercontent.com/p/AF1QipMeIP7jDGWD68GSCvjrFSKla8Qlkza0vDITwtql=w243-h406-n-k-no-nu" },
-    { title: "Nail Studio", image: "https://lh3.googleusercontent.com/p/AF1QipOuY5CgsHeZVsEmDx9zhNehQ_49__cUlGQuNj9S=w243-h406-n-k-no-nu" }
+    { title: "Artistic Nails", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUDMpVLCV55j5SQvubONz1gJXZYWMTIjZsr26u2EeupEvNTHNxRSEecFUckapHYkWEh6-LlgFeM4FZ3AbE5j5BZoh5JE3uL0ltEPCi-CBNOWbrYntk7MqwMixqUJWkNf__1OJDbiQpz6QXyzCD9AcoGbSVrlfHgEfXhpG7RNxcvE6oiXq_DcZQWa-TAXsqtpzJ0uGcRD7LcFyY_qk9vjPfjwsAt4ozDOaPVC9OA=w1280" },
+    { title: "Studio Interior", image: "" }
   ];
 
   return (
@@ -492,27 +538,24 @@ const Gallery = () => {
             key={i} 
             whileHover={{ scale: 1.02 }}
             className={cn(
-              "aspect-[3/4] bg-brand-glass rounded-xl border border-white/5 flex flex-col items-center justify-center text-center transition-all hover:border-brand-gold/50 cursor-pointer glossy-effect relative overflow-hidden",
-              i % 3 === 0 ? "md:col-span-2 md:aspect-video" : ""
+              "group aspect-square bg-brand-glass rounded-xl border border-white/5 flex flex-col items-center justify-center text-center transition-all hover:border-brand-gold/50 cursor-pointer glossy-effect relative overflow-hidden",
+              item.title === "Bridal Look" || item.title === "Party Glamour" || item.title === "Haldi Special" || item.title === "Artistic Nails" ? "md:row-span-2 md:aspect-[9/16]" : ""
             )}
           >
             {item.image ? (
               <img 
                 src={item.image} 
                 alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
             ) : (
               <div className="p-6 flex flex-col items-center">
-                <Sparkles className="w-6 h-6 text-brand-gold/20 mb-4" />
-                <span className="text-brand-gray font-serif italic uppercase text-[10px] tracking-widest block">Upload {item.title}</span>
+                <Sparkles className="w-5 h-5 text-brand-gold/10 mb-4" />
               </div>
             )}
             
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
-              <span className="text-brand-gold font-serif italic text-xs tracking-widest uppercase">{item.title}</span>
-            </div>
+            <div className="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </motion.div>
         ))}
       </div>
@@ -610,9 +653,14 @@ const Contact = () => {
                    <MapPin className="w-12 h-12 text-brand-gold/40 mx-auto group-hover:scale-110 transition-transform" />
                    <h3 className="text-2xl font-serif text-brand-beige accent-glow">View On Google Maps</h3>
                    <p className="text-sm font-light text-brand-gray tracking-wide">Find us easily near Sarvan Nagar, Bijnor</p>
-                   <button className="px-10 py-4 bg-transparent border border-brand-gold text-brand-gold rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-black transition-all flex items-center gap-3 mx-auto">
+                   <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Glossy+Makeup+Studio+Sarvan+Nagar+Bijnor" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="px-10 py-4 bg-transparent border border-brand-gold text-brand-gold rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-black transition-all flex items-center gap-3 mx-auto"
+                   >
                       Get Directions <ExternalLink className="w-4 h-4" />
-                   </button>
+                   </a>
                 </div>
              </div>
           </div>
@@ -646,7 +694,7 @@ const HighConversionCTA = () => {
                 <a href={`tel:${PHONE}`} className="bg-brand-black text-brand-nude px-12 py-6 rounded-sm text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:scale-105 transition-transform">
                    <Phone className="w-5 h-5 text-brand-gold" /> Call Now
                 </a>
-                <a href={WHATSAPP_URL} className="bg-transparent border border-brand-black text-brand-black px-12 py-6 rounded-sm text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-brand-black hover:text-white transition-all">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="bg-transparent border border-brand-black text-brand-black px-12 py-6 rounded-sm text-sm font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-brand-black hover:text-white transition-all">
                    <MessageCircle className="w-5 h-5" /> WhatsApp Now
                 </a>
              </div>
@@ -670,9 +718,21 @@ const Footer = () => {
                 Visit us for bridal, engagement, party makeup and more.
              </p>
              <div className="flex gap-4">
-                {[Instagram, MessageCircle, Phone].map((Icon, i) => (
-                   <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-black transition-all">
-                      <Icon className="w-4 h-4" />
+                {[
+                  { Icon: Instagram, href: INSTAGRAM_URL, target: "_blank" },
+                  { Icon: MessageCircle, href: WHATSAPP_URL, target: "_blank" },
+                  { Icon: Phone, href: `tel:${PHONE}` },
+                  { Icon: ArrowRight, href: SMS_URL, label: "SMS" }
+                ].map((social, i) => (
+                   <a 
+                    key={i} 
+                    href={social.href} 
+                    target={social.target} 
+                    rel={social.target ? "noopener noreferrer" : undefined}
+                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-black transition-all"
+                    title={social.label}
+                   >
+                      <social.Icon className="w-4 h-4" />
                    </a>
                 ))}
              </div>
@@ -694,7 +754,7 @@ const Footer = () => {
              <p className="text-xs font-light text-brand-gray mb-4 leading-relaxed uppercase tracking-wider">
                 Sarvan Nagar, Bijnor Rd, <br/> Near Tata Warehouse, <br/> Uttar Pradesh
              </p>
-             <p className="font-serif text-xl tracking-wide text-brand-beige">08303794290</p>
+             <p className="font-serif text-xl tracking-wide text-brand-beige">{PHONE}</p>
           </div>
        </div>
 
@@ -715,16 +775,40 @@ const FloatingButtons = () => {
          <motion.a 
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            href={`tel:${PHONE}`}
+            className="w-14 h-14 bg-brand-gold rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(212,175,55,0.4)] text-brand-black"
+            title="Call Us"
+         >
+            <Phone className="w-7 h-7" />
+         </motion.a>
+         <motion.a 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(34,197,94,0.4)] text-white"
+            title="WhatsApp Us"
          >
             <MessageCircle className="w-7 h-7" />
          </motion.a>
          <motion.a 
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            href={SMS_URL}
+            className="w-14 h-14 bg-brand-pink rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(219,39,119,0.3)] text-white"
+            title="SMS Us"
+         >
+            <MessageCircle className="w-7 h-7 rotate-180" />
+         </motion.a>
+         <motion.a 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-14 h-14 bg-linear-to-tr from-yellow-500 via-pink-600 to-purple-600 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(219,39,119,0.3)] text-white"
+            title="Instagram"
          >
             <Instagram className="w-7 h-7" />
          </motion.a>
