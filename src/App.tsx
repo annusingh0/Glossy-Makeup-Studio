@@ -177,68 +177,66 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
+    <section className="relative min-h-screen py-24 md:py-32 flex items-center justify-center overflow-hidden bg-brand-black">
       {/* Background with Glow & Image Texture */}
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-40 bg-brand-black/40">
         <img 
           src="https://lh3.googleusercontent.com/sitesv/AA5AbUDMhSwmqH3QaRiYSBLB-A9lOBtV4Fpt1fDEANt8YhvbLoS-rTrM-dJR6pcYaQW-nUlj9Tq8E5vfuqZiEgSuhDJMqRThcqNeyElSf8zejbkwCuo-CJo48ptBxwUL6N8ij_s6WznWVEYMjk3hk3hCATh2rogwPvGqoLu9WRoQrGu4KJ3XIjo5788ZH2-HxXuMjlomqnVMnXLG0ZIR7Nv7G8ScjXkqESyvK5-X=w1280"
-          className="absolute inset-0 w-full h-full object-cover opacity-10"
+          className="absolute inset-0 w-full h-full object-cover opacity-10 bg-brand-black"
           alt=""
           referrerPolicy="no-referrer"
+          loading="eager"
+          // @ts-ignore
+          fetchpriority="high"
+          decoding="async"
         />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/20 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-pink/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-pink/5 rounded-full blur-[120px]" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center lg:text-left">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center w-full"
+          className="flex flex-col items-center lg:items-start"
         >
-          <span className="text-brand-gold uppercase tracking-[3px] md:tracking-[4px] text-[10px] md:text-[11px] mb-4 md:mb-6 font-semibold">
+          <span className="text-brand-gold uppercase tracking-[4px] text-[11px] mb-6 font-semibold block">
             Luxury Beauty Boutique
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-8xl text-brand-beige font-serif mb-6 md:mb-8 leading-[1.1] accent-glow px-2">
-            Your Dream Bridal <br className="hidden sm:block"/> 
-            <span className="italic">Look Starts Here</span> ✨
+          <h1 className="text-5xl sm:text-6xl md:text-8xl text-brand-beige font-serif mb-8 leading-[1.1] accent-glow">
+            Your Dream Bridal <br className="hidden md:block" /> 
+            <span className="italic text-brand-gold">Look Starts Here</span> ✨
           </h1>
-          <p className="text-brand-gray text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-10 font-light tracking-wide px-4">
-            Bridal • Engagement • Party • HD Makeup | Professional Beauty Academy In Bijnor
+          <p className="text-brand-gray text-base md:text-xl max-w-3xl mb-12 font-light tracking-wide leading-relaxed">
+            Bridal • Engagement • Party • HD Makeup | Professional Beauty Academy In Bijnor. 
+            Transforming your vision into a stunning reality.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-6 sm:px-0">
+          <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
             <a 
               href="#contact" 
-              className="px-8 md:px-10 py-4 md:py-5 bg-brand-gold text-brand-black font-bold uppercase tracking-[0.2em] text-xs md:text-sm rounded-sm glossy-effect shadow-2xl shadow-brand-gold/10"
+              className="px-10 py-5 bg-brand-gold text-brand-black font-bold uppercase tracking-[0.2em] text-xs md:text-sm rounded-xs glossy-effect shadow-2xl shadow-brand-gold/20 text-center w-full sm:w-auto min-w-[220px]"
             >
               Book Appointment
             </a>
-            <div className="flex gap-4 w-full sm:w-auto">
-               <a 
-                href={WHATSAPP_URL}
-                className="flex-1 sm:flex-none px-8 md:px-10 py-4 md:py-5 bg-transparent border border-brand-gold text-brand-gold rounded-sm hover:bg-brand-gold/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm text-xs md:text-sm uppercase font-bold tracking-widest"
-              >
-                WhatsApp Chat
-              </a>
-            </div>
+            <a 
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-5 bg-transparent border border-brand-gold/40 text-brand-gold rounded-xs hover:bg-brand-gold/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm text-xs md:text-sm uppercase font-bold tracking-widest w-full sm:w-auto min-w-[220px]"
+            >
+              WhatsApp Chat
+            </a>
           </div>
         </motion.div>
-      </div>
-
-      {/* Decorative Placeholder Banner */}
-      <div className="absolute inset-0 z-0 opacity-20 flex items-center justify-center pointer-events-none">
-        <div className="w-full h-full border border-brand-gold/10 rounded-[100px] scale-125 rotate-12" />
-        <div className="absolute inset-0 bg-linear-to-b from-brand-black via-transparent to-brand-black" />
       </div>
 
       {/* Scroll indicator */}
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-brand-nude/30 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-brand-nude/30 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-[10px] uppercase tracking-widest">Scroll</span>
         <div className="w-px h-12 bg-linear-to-b from-brand-gold/50 to-transparent" />
@@ -268,71 +266,73 @@ const About = () => {
       {/* Decorative Background Element */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-brand-gold/5 to-transparent pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
-        <div className="relative">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="aspect-square bg-brand-glass rounded-lg border border-brand-gold/10 overflow-hidden glossy-effect shadow-2xl relative"
-          >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative max-w-md mx-auto lg:mr-auto lg:ml-0 w-full"
+        >
+          {/* Left Side: Featured Image with Dark Luxury Overlay */}
+          <div className="aspect-[4/5] rounded-[40px] overflow-hidden border border-brand-gold/20 shadow-[0_20px_50px_rgba(212,175,55,0.15)] relative group z-10 glossy-effect bg-brand-black">
             <img 
-              src="https://lh3.googleusercontent.com/sitesv/AA5AbUBnosMMyE9dpg-GoVhENXxYNaNaaVYbXs8oZXcqk-QV2ATM6nIy5o2CWU-e8NriLbMc3-d9HctLMpWUJNNZ-Z55uul0GAiP2COpSq3BdS8PFCE3phyvDDBo-DNlCWCtgwBbWlHh8ChlJtYfF5K06eFyK6D_LspoqzLFPr-iOehvZkzcy1uuIAU4Fj46c-Th8JW4sNT1GbtWy1RmpAs20cpO4Jq-92oE3Bboc_Y=w1280" 
-              alt="GLOSSY Luxury Studio Experience - Square Format" 
-              className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-              referrerPolicy="no-referrer"
+              src="/images/artist-1.webp" 
+              alt="GLOSSY Professional Artistry" 
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               loading="lazy"
               decoding="async"
             />
-            {/* Overlay Gradient for Luxury Feel */}
-            <div className="absolute inset-0 bg-linear-to-t from-brand-black/60 via-transparent to-transparent pointer-events-none" />
+            {/* Premium Dark Gradient Overlay */}
+            <div className="absolute inset-0 bg-linear-to-t from-brand-black/80 via-brand-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
             
-            <div className="absolute bottom-8 left-8 z-10">
-              <Sparkles className="w-8 h-8 text-brand-gold drop-shadow-lg mb-2 opacity-50" />
-              <p className="text-brand-beige font-serif italic text-sm tracking-widest uppercase text-shadow-lg">Luxury Studio Experience</p>
+            {/* Soft inner glow */}
+            <div className="absolute inset-0 rounded-[40px] border border-brand-gold/10 pointer-events-none" />
+            
+            <div className="absolute bottom-10 left-10 z-20">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Sparkles className="w-8 h-8 text-brand-gold mb-3" />
+                <p className="text-brand-beige font-serif italic text-sm tracking-[0.2em] uppercase">Artist Portfolio</p>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Decorative Float Elements */}
+          <div className="absolute -top-12 -left-12 w-48 h-48 bg-brand-gold/10 blur-[100px] -z-10 animate-pulse" />
+          <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-brand-pink/5 blur-[100px] -z-10" />
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="absolute -bottom-10 -right-6 bg-brand-black/90 backdrop-blur-md text-white p-6 rounded-lg border border-brand-gold/20 shadow-2xl hidden lg:block z-20"
-          >
-            <div className="flex items-center gap-4 mb-2">
-              <div className="flex text-brand-gold">
-                {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
-              </div>
-              <span className="font-bold text-lg">4.9/5</span>
-            </div>
-            <p className="text-[10px] font-bold text-brand-gold tracking-[0.3em] uppercase">Bijnor's #1 Rated Studio</p>
-          </motion.div>
-        </div>
+          {/* Abstract Border Accent */}
+          <div className="absolute -inset-4 border border-brand-gold/5 rounded-[50px] pointer-events-none -z-10" />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-left"
         >
           <SectionHeading subtitle="The Art of Perfection" title="Leading Makeup Studio In Bijnor" />
           <p className="text-xl text-brand-beige/80 font-serif italic mb-6">
             Transforming your vision into a stunning reality with a touch of luxury.
           </p>
-          <p className="text-lg text-brand-gray font-light leading-relaxed mb-8">
+          <p className="text-lg text-brand-gray font-light leading-relaxed mb-10">
             Glossy Makeup Studio & Academy is Bijnor's most trusted destination for premium beauty services. 
             Located in Sarvan Nagar, we specialize in high-definition bridal transformations and professional makeup artistry that lasts.
           </p>
           
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4">
             {[
               { label: "110+", sub: "Verified Reviews" },
               { label: "4.9⭐", sub: "Google Rating" },
               { label: "HD & Airbrush", sub: "Techniques" },
               { label: "Certified", sub: "Global Academy" }
             ].map((stat, i) => (
-              <div key={i} className="p-6 bg-brand-glass rounded-lg border border-brand-gold/10 hover:border-brand-gold/30 transition-colors group">
-                <div className="text-2xl font-serif text-brand-gold mb-1 group-hover:scale-110 transition-transform origin-left">{stat.label}</div>
-                <div className="text-[10px] uppercase tracking-widest text-brand-gray font-bold">{stat.sub}</div>
+              <div key={i} className="p-4 bg-brand-glass rounded-lg border border-brand-gold/10 hover:border-brand-gold/30 transition-colors group">
+                <div className="text-xl font-serif text-brand-gold mb-1 group-hover:scale-110 transition-transform origin-left">{stat.label}</div>
+                <div className="text-[9px] uppercase tracking-widest text-brand-gray font-bold">{stat.sub}</div>
               </div>
             ))}
           </div>
@@ -520,29 +520,30 @@ const Academy = () => {
 
 const Gallery = () => {
   const GALLERY_ITEMS = [
-    { title: "Bridal Look", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBKhYfmdOTzXObbgTVB9cOLaZhKKefhhyyHzBrEJG6iYmcaLy1OhHB0YWLFAdXBC66DkdiSYm6aLtCy8i0srOK6JapZ3gYXxHIfz70USkY_lQJWlp8GtFMsrFltN8zznA04mSC4LRtIo4jN2K5gmSJadnu0ewubEVHQbzP7za7ubiiYqTguODA7O88=w1280" },
-    { title: "Haldi Special", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBj0kYqTlvdKXH6sX6k4SVjYgLYqcY4uDJJJ4JfnsNj7KUNCmZkPb2nh8dny1LJ0ZtMUL5LqRzknWu7sXAXjkc1lA2YYvyYFe6-_h7--SB2lpqHvvDVfUC1ZvjWwAnujF2kOSNX2tITtxpPlyH9qeAq_cqktd6xM_a-7Y_zOipwsb6cYtOiJpXL2Jjdqhc1KNg9dXN01-IsDbq8gFFKfqSeVawWxx1mxSPc=w1280" },
-    { title: "Engagement Glow", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUBbHdIa1zeMU4wzX4urRi0LE9BSZferKjiVGQhBkGvopoZSaEpDBWbUzBup5MOKAevhNm3L9M6mZ0S8cHHf3rD2mqEYmlPCf0P3VDi2JSYh5kR5M4iYL5I4BfkuUqHIbXdZMR-4JAe0iSXZaNRVu1D4qOwSM26uHQetJzUXLtNOVsM3tmys1VCKXq0mEN1If3YBDtzx1Ar6-UU7XkcZ16phe9h6TURXdHo7da8=w1280" },
-    { title: "Party Glamour", image: "https://lh3.googleusercontent.com/sitesv/AA5AbUDMhSwmqH3QaRiYSBLB-A9lOBtV4Fpt1fDEANt8YhvbLoS-rTrM-dJR6pcYaQW-nUlj9Tq8E5vfuqZiEgSuhDJMqRThcqNeyElSf8zejbkwCuo-CJo48ptBxwUL6N8ij_s6WznWVEYMjk3hk3hCATh2rogwPvGqoLu9WRoQrGu4KJ3XIjo5788ZH2-HxXuMjlomqnVMnXLG0ZIR7Nv7G8ScjXkqESyvK5-X=w1280" },
+    { title: "Bridal Masterpiece", image: "/images/bridal-1.webp" },
+    { title: "The Bridal Glow", image: "/images/bridal-2.webp" },
+    { title: "Haldi Radiance", image: "/images/haldi-1.webp" },
+    { title: "Haldi Tradition", image: "/images/haldi-2.webp" },
+    { title: "Party Glamour", image: "/images/party-1.webp" },
   ];
 
   return (
     <section id="gallery" className="py-24 px-6 md:px-12 bg-brand-black border-y border-white/5">
       <SectionHeading subtitle="Work Gallery" title="Our Work Portfolio" />
      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
         {GALLERY_ITEMS.map((item, i) => (
           <motion.div 
             key={i} 
             whileHover={{ scale: 1.02 }}
             className={cn(
-              "group bg-brand-glass rounded-xl md:rounded-3xl border border-white/5 transition-all hover:border-brand-gold/50 cursor-pointer glossy-effect relative overflow-hidden shadow-2xl aspect-[3/4]"
+              "group bg-brand-glass rounded-xl md:rounded-3xl border border-white/5 transition-all hover:border-brand-gold/50 cursor-pointer glossy-effect relative overflow-hidden shadow-2xl aspect-[4/5]"
             )}
           >
             <img 
               src={item.image} 
               alt={item.title} 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 bg-zinc-900"
               referrerPolicy="no-referrer"
               loading="lazy"
               decoding="async"
